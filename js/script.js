@@ -83,3 +83,56 @@ select('.s_headertop > div.container').style.height = '100%';
 
 select('.s_headerbottom > div.container').style.border = '1px dashed blue';
 select('.s_headerbottom > div.container').style.height = '100%';
+
+var f = createMyElement('footer');
+
+var main = createMyElement('div');
+main.setAttribute('class','s_main')
+
+function appendToBody(elem){
+    document.body.append(elem)
+}
+
+appendToBody(main)
+appendToBody(f)
+
+// select('.s_main').style.background = 'blue';
+// select('.s_main').style.height = '12255px';
+
+var myStyle = {
+    background : 'blue',
+    height: '12255px'
+}
+
+function applyStyleToElement(selector, styleObject){
+    for (const key in styleObject) {
+        document.querySelector(selector).style[key] = styleObject[key];
+    }
+}
+
+applyStyleToElement('.s_main',myStyle);
+
+select('footer').setAttribute('class','myFooter');
+
+var myStyle = {
+    background : 'orange',
+}
+
+applyStyleToElement('footer',myStyle);
+
+function appendToElement(elem,selector){
+    document.querySelector(selector).append(elem);
+}
+
+appendToElement(document.createElement('div'),'footer');
+appendToElement(document.createElement('div'),'footer');
+
+var ft = document.querySelector('footer > div:first-child');
+ft.innerHTML = 'FooterTop';
+ft.style.height = '2772px'
+ft.style.background = 'purple'
+
+var fb = document.querySelector('footer > div:last-child');
+fb.innerHTML = 'FooterBottom';
+fb.style.height = '497px'
+fb.style.background = 'lavender'
